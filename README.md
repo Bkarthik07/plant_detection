@@ -21,8 +21,8 @@ A web application that identifies plants from uploaded images and provides detai
   <li><b>Backend:</b> Python (Flask)</li>
   <li><b>Frontend:</b> HTML, CSS, JavaScript</li>
   <li><b>API:</b> Google Vision API for plant identification</li>
-  <li><b>Database/External API (optional):</b> Trefle API or custom database for plant details</li>
-  <li><b>Deployment Platforms:</b> Heroku, Google Cloud, or AWS</li>
+  
+  <li><b>Deployment Platforms:</b> Vercel</li>
 </ul>
 
 ---
@@ -33,7 +33,7 @@ A web application that identifies plants from uploaded images and provides detai
 <ol>
   <li>Python 3.8+ installed on your system.</li>
   <li>A Google Cloud account with Vision API enabled.</li>
-  <li>(Optional) Trefle API key or plant information database.</li>
+  
 </ol>
 
 ### <h3>Steps to Set Up and Run Locally</h3>
