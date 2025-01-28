@@ -1,8 +1,7 @@
 {
-  "version": 2,
   "builds": [
     {
-      "src": "PR@.py",
+      "src": "PR2.py",
       "use": "@vercel/python"
     }
   ],
