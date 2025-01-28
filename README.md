@@ -42,3 +42,5 @@ A web application that identifies plants from uploaded images and provides detai
    ```bash
    git clone https://github.com/Bkarthik07/plant_detection.git
    cd plant_detection
+### <h4>Web link</h4>
+https://plant-detection-eight.vercel.app/
