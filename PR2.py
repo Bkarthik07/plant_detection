@@ -10,7 +10,6 @@ app = Flask(__name__)
 # Configure the API key for Google Generative AI (Gemini)
 genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
-
 # Define the route for the home page
 @app.route('/')
 def home():
@@ -33,20 +32,26 @@ def process_image():
     img_byte_arr = img_byte_arr.getvalue()
 
     # Create a prompt for the Gemini model
-    prompt = ["Given the image of the plant, identify its name, description, rarity, medical properties, physical properties, smell, usage, and any fun facts or interesting details about it.",image]
+    prompt = ["Given the image of the plant, identify its name, description, rarity, medical properties, physical properties, smell, usage, and any fun facts or interesting details about it.", image]
 
     try:
         # Send the prompt to the Gemini API
         model = genai.GenerativeModel("gemini-1.5-flash")
         response = model.generate_content(prompt)
 
-        plant_info = (response.text).replace("**","")# The plant's detailed description
+        plant_info = (response.text).replace("**", "")  # The plant's detailed description
 
         return jsonify({"plant_info": plant_info})
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Vercel serverless function handler
+def vercel_handler(request):
+    with app.app_context():
+        response = app.test_client().get(request.path, query_string=request.args)
+        return response.get_data(), response.status_code, response.headers.items()
 
+# Run the app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)), debug=False)
