@@ -36,7 +36,7 @@ def process_image():
 
     try:
         # Send the prompt to the Gemini API
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemini-2.5-flash")
         response = model.generate_content(prompt)
 
         plant_info = (response.text).replace("**", "")  # The plant's detailed description
